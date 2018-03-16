@@ -4,23 +4,26 @@
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 3;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Sans Pro:size=9:antialias=true" };
-static const char dmenufont[]       = "Source Sans Pro:size=9:antialias=true";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char *fonts[]          = { "Bitstream Vera Sans:size=8:antialias=true" };
+static const char dmenufont[]       = "Bitstream Vera Sans:size=8:antialias=true";
+static const char col_gray1[]       = "#222222\0A#bb";
+static const char col_gray2[]       = "#444444\0A#ff";
+static const char col_gray3[]       = "#bbbbbb\0A#ff";
+static const char col_gray4[]       = "#eeeeee\0A#ff";
+static const char col_cyan[]        = "#005577\0A#bb";
 static const char *colors[SchemeLast][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel] =  { col_gray4, col_cyan,  col_cyan  },
 };
+
+/* alpha */
+static const unsigned int alpha_scheme[3] = { 0xff, 0xaa, 0xff };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -33,6 +36,13 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Spotify",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Code",     "code",     NULL,       1,            0,           -1 },
+	{ "Skype",    "skype",    "Skype",    0,            1,           -1 },
+	{ "Chromium-browser", "chromium-browser", NULL, 1 << 2,    0,    -1 },
+	{ "Xfce4-terminal", "xfce4-terminal", NULL,   1 << 1,     0,     -1 },
+	{ "Java", "java", "Red Hat JBoss Developer Studio ", 0, 1,       -1 },
+	{ "Red Hat JBoss Developer Studio", "Red Hat JBoss Developer Studio", NULL, 1, 0, -1 },
 };
 
 /* layout(s) */
