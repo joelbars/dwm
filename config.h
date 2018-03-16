@@ -16,7 +16,7 @@ static const char col_gray2[]       = "#444444\0A#ff";
 static const char col_gray3[]       = "#bbbbbb\0A#ff";
 static const char col_gray4[]       = "#eeeeee\0A#ff";
 static const char col_cyan[]        = "#005577\0A#bb";
-static const char *colors[SchemeLast][3]      = {
+static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel] =  { col_gray4, col_cyan,  col_cyan  },
@@ -51,7 +51,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
-	/* symbol     arrange function */
+	/* symbol   arrange function */
 	{ "#",      tile },    /* first entry is default */
 	{ "@",      NULL },    /* no layout function means floating behavior */
 	{ "M",      monocle },
